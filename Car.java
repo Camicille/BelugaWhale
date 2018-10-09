@@ -1,19 +1,47 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Car here.
+ * A car that moves and interacts with the world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Chandler Clarke 
+ * @version 1.1
  */
 public class Car extends Actor
 {
-    /**
-     * Act - do whatever the Car wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+    private int animationCount, aniTimer, SPEED, LATERALSPEED;
+    private String carImages[] =
+        {"car1", "car2", "car3", "car4"};
+    
+    public Car(){
+        SPEED = 4;
+        LATERALSPEED = 3;
+    }
+        
+    public void act() {
+        controller();
+        updateImage();
+    }   
+
+    private void controller(){
+        if (Greenfoot.isKeyDown("W") && getY() >= 110)
+            setLocation (getX(), getY() - LATERALSPEED);
+        if (Greenfoot.isKeyDown("S") && getY() <= 266)
+            setLocation (getX(), getY() + LATERALSPEED);
+        if (Greenfoot.isKeyDown("A") && getX() >= 31){
+            setLocation (getX() - SPEED, getY());
+        }
+        if (Greenfoot.isKeyDown("D") && getX() <= 568)
+            setLocation (getX() + SPEED, getY());
+        updateImage();
+    }
+    private void updateImage(){
+        if (aniTimer == 7){
+            setImage(carImages[animationCount] + ".png");
+            animationCount++;
+            aniTimer = 0;
+        }
+        if (animationCount >= 4)
+            animationCount = 0;
+        aniTimer++;
+    }
 }

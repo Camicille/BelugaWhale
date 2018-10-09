@@ -1,0 +1,15 @@
+Version 1.0 @Chandler
+-Car Class Functionality added(movement, animation, health pickup)
+-Moving Houses and Trees that spawn and set thier image randomly added.
+-Road that moves, and moves itself all the way to the right after it exits the left boundary.
+-Methods setPoints and setHealth added to MyWorld.class.  Can callfrom anywhere.  Does not change whole value
+but instead adds the parameter value you defined to the current total.
+	-Added MAXHEALTH, currently set to 5.  Health returns to maxhealth if it goes over that value.
+	-Score and Health are shown in the top corners, left and right respectively.
+
+
+Version 1.1 @Chandler
+-Car class animation functionality added with updateImage method.
+-Array carImages added containing animation images.
+-Point/Health change methods removed from car so that individual objects add/subtract thier
+own values from the world so that conditions of project are met.  Methods still exist in world to add health/points.
