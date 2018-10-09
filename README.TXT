@@ -1,12 +1,7 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
-
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
+PROJECT TITLE:  Beluga Whale
+PURPOSE OF PROJECT: 1st Group project with guilds.
+VERSION or DATE: 1.2
+HOW TO START THIS PROJECT: Click Run.
+AUTHORS: Camille Otillio, Tyler Bakeman, Phillip Jepkes, Marlene Inoue, Chandler Clarke
 USER INSTRUCTIONS:
+WASD to move car.

@@ -1,34 +1,35 @@
 import greenfoot.*;
-
 /** class Health: provides players with Health
-  * 
-  * @author tylerbakeman
-  * @version 1.01
+ * 
+ * @author tylerbakeman
+ * @version 1.01
  **/
 public class Health extends Actor{
-
     //DYNAMIC In-Class
     private static boolean destroy = false;
     private static int time = 0;
     //DYNAMIC Out-Class
-    private static int yMapRestrict = 20; //vertical map restriction
-    private static int mapSpeed = 3;
+    private static int yMapRestrict = 113; //vertical map restriction
     //Method Modification
     private static int wobbleDir = (-1); //direction
     private static int wobbleBuffer = 4; //timing
     private static int wobbleMag = 16;   //rotation
-
     /** MAIN:
-      *
-      * act() 
+     *
+     * act() 
      **/
     public Health(){
-        int h = yMapRestrict;
-        int x = getWorld().getWidth();
-        int y = Greenfoot.getRandomNumber(getWorld().getHeight() - (2 * h)) + h;
-        setLocation(x,y);
+        MyWorld world = (MyWorld) getWorld();
+        if(world != null){
+            int h = yMapRestrict;
+            int x = world.getWidth();
+            int y = Greenfoot.getRandomNumber(getWorld().getHeight() - (2 * h)) + h;
+            setLocation(x,y);
+        }
+        getImage().scale(20,20);
         trimWhite();
     }
+
     public void act(){
         if(destroy != true){
             shift();
@@ -38,36 +39,38 @@ public class Health extends Actor{
             getWorld().removeObject(this);
         }
     }
+
     private void updateTime(){
         time++;
         if(time > 5000)
             time = 0;
     }
 
-
     /**LOCOMOTION:
-      *
-      * shift()
-      * wobble()
+     *
+     * shift()
+     * wobble()
      **/
     private void shift(){
-        setLocation(getX() - mapSpeed);
-        if(getX() <= 0)
+        MyWorld world = (MyWorld) getWorld();
+        setLocation(getX() - world.getSpeed(), getY());
+        if(getX() <=  -20)
             destroy = true;
     }
+
     private void wobble(){
-        switch(time % (wobbleBuffer * 4){
+        switch(time % (wobbleBuffer * 4)){
             case 0:
-                wobbleDir = (-1);
+            wobbleDir = (-1);
             break;
             case 4:
-                wobbleDir = 1;
+            wobbleDir = 1;
             break;
             case 8:
-                wobbleDir = 1;
+            wobbleDir = 1;
             break;
             case 12:
-                wobbleDir = (-1);
+            wobbleDir = (-1);
             break;
         }
         turn(wobbleDir * (wobbleMag / 4));
