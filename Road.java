@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Road extends Actor
 {
     public static final int WIDTH = 852;
-    public static final int HEIGHT = 173;
+    public static final int HEIGHT = 172;
     /**
      * Act - do whatever the Road wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

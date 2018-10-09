@@ -1,8 +1,14 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ The\ main\ World\ class\r\n\ \r\n\ @author\ Chandler\ Clarke\r\n\ @version\ 1.1\r\n
+comment0.text=\r\n\ The\ main\ World\ class\r\n\ \r\n\ @author\ Chandler\ Clarke,\ Tyler\ Bakeman,\ Phil\r\n\ @version\ 1.1\r\n
 comment1.params=
 comment1.target=MyWorld()
+comment10.params=
+comment10.target=void\ devPanelManager()
+comment11.params=
+comment11.target=void\ devPanel()
+comment12.params=
+comment12.target=void\ countdown()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -17,4 +23,6 @@ comment7.params=change
 comment7.target=void\ addHealth(int)
 comment8.params=
 comment8.target=int\ getSpeed()
-numComments=9
+comment9.params=
+comment9.target=void\ scoreKeeper()
+numComments=13

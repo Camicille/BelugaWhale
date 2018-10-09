@@ -6,8 +6,8 @@ import greenfoot.*;
  **/
 public class Health extends Actor{
     //DYNAMIC In-Class
-    private static boolean destroy = false;
-    private static int time = 0;
+    private boolean destroy = false;
+    private int time = 0;
     //DYNAMIC Out-Class
     private static int yMapRestrict = 113; //vertical map restriction
     //Method Modification
@@ -19,13 +19,6 @@ public class Health extends Actor{
      * act() 
      **/
     public Health(){
-        MyWorld world = (MyWorld) getWorld();
-        if(world != null){
-            int h = yMapRestrict;
-            int x = world.getWidth();
-            int y = Greenfoot.getRandomNumber(getWorld().getHeight() - (2 * h)) + h;
-            setLocation(x,y);
-        }
         getImage().scale(20,20);
         trimWhite();
     }

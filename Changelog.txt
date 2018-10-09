@@ -16,3 +16,10 @@ own values from the world so that conditions of project are met.  Methods still 
 
 Version 1.2 @ Tyler, Chandler
 -Health Object functionality added.
+
+Version 1.3 @ Chandler, Tyler
+-More world functionality added
+	-dev panel (press M)
+	-start countdown
+	-all timers and general variables generalized with static vars.
+	-added starting scenery upon world init.
