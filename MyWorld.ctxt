@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ The\ main\ World\ class\r\n\ \r\n\ @author\ Chandler\ Clarke,\ Tyler\ Bakeman,\ Phil\r\n\ @version\ 1.1\r\n
+comment0.text=\r\n\ The\ main\ World\ class\r\n\ \r\n\ @author\ Chandler\ Clarke,\ Tyler\ Bakeman,\ Phil\r\n\ @version\ 1.2\r\n
 comment1.params=
 comment1.target=MyWorld()
 comment10.params=
@@ -18,7 +18,7 @@ comment4.target=void\ itemSpawner()
 comment5.params=
 comment5.target=void\ timers()
 comment6.params=points
-comment6.target=void\ addPoints(int)
+comment6.target=void\ addScore(int)
 comment7.params=change
 comment7.target=void\ addHealth(int)
 comment8.params=

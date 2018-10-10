@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The main World class
  * 
  * @author Chandler Clarke, Tyler Bakeman, Phil
- * @version 1.1
+ * @version 1.2
  */
 public class MyWorld extends greenfoot.World
 {
@@ -54,7 +54,7 @@ public class MyWorld extends greenfoot.World
     private void prepare(){
         setPaintOrder(Car.class, Health.class, House.class, StartLine.class);
         //player init
-        addObject(new Car(), 160, 200);
+                        //addObject(new Car(), 160, 200);
         //road init
         addObject(new Road(), 600, 200);
         addObject(new Road(), 200, 200);
@@ -109,7 +109,7 @@ public class MyWorld extends greenfoot.World
             timerHealth = HEALTHTIMERMAX;
     }
     //Sets points
-    public void addPoints(int points){
+    public void addScore(int points){
         score = score + points;
     }
     //Sets health

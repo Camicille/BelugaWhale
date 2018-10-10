@@ -1,0 +1,72 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Enemy1 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Enemy1 extends Enemies
+{
+    /**
+     * Act - do whatever the Enemy1 wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        move(1);
+        int amount = Greenfoot.getRandomNumber(91)-45;
+        collisionDetector();
+        playerKiller();
+        if (isAtEdge())
+        {
+            turn(amount);
+        }
+        if (Greenfoot.getRandomNumber(100) >11){
+            int amountTurn = Greenfoot.getRandomNumber(31) - 15;
+            turn(amountTurn);
+        }
+    }
+    //Detects Collisions with walls
+    public void collisionDetector(){
+        //1x1 Barriers
+        if (!getIntersectingObjects(RightBarrier.class).isEmpty()) move(-4);
+        if (!getIntersectingObjects(LeftBarrier.class).isEmpty()) move(4);
+        if (!getIntersectingObjects(BottomBarrier.class).isEmpty()){ 
+            setRotation(270);
+            move(4);
+            setRotation(0);
+        }   
+        if (!getIntersectingObjects(TopBarrier.class).isEmpty()){
+            setRotation(90);
+            move(4);
+            setRotation(0);
+        }   
+        //5x1 Barriers
+        if (!getIntersectingObjects(LongWallRight.class).isEmpty()) move(-4);
+        if (!getIntersectingObjects(LongWallLeft.class).isEmpty()) move(4);
+        if (!getIntersectingObjects(LongWallBottom.class).isEmpty()){ 
+            setRotation(270);
+            move(4);
+            setRotation(0);
+        }   
+        if (!getIntersectingObjects(LongWallTop.class).isEmpty()){
+            setRotation(90);
+            move(4);
+            setRotation(0);
+        }
+    }      
+    //Kills player on contact
+    public void playerKiller(){
+        
+        if (!getIntersectingObjects(Player.class).isEmpty()){
+        getWorld().removeObject(getOneIntersectingObject(Player.class));
+        getWorld().removeObject(getOneIntersectingObject(Sword.class));z
+        GreenfootImage drawedImage = new GreenfootImage("youDied.jpg");//the image that is drawed;
+        getWorld().getBackground().drawImage(drawedImage, 100, 400);
+        Greenfoot.delay(100);
+        StartingRoom w = new StartingRoom();
+        Greenfoot.setWorld(w);
+    }
+    }
+}
