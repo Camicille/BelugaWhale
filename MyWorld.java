@@ -15,10 +15,12 @@ public class MyWorld extends greenfoot.World
     private int timerHouse, timerTrees, timerHealth, devTimer, actTimer;
     private static int WORLDSPEED, MAXHEALTH, HOUSETIMERMAX, HEALTHTIMERMAX, TREETIMERMAX;
     //Various Integers
-    private int yCoord, score, health;
+    private int yCoord, score, health = 0;
     //Booleans
     private boolean isDevMenuOpen;
-
+private int randpt1;// determine if Goldfish spawn
+   private int randpt2;// side
+   private int randY; // Y cordinate for Goldfish spawn
     public MyWorld()
     {    
         super(WIDTH, HEIGHT, 1, false); 
@@ -49,6 +51,12 @@ public class MyWorld extends greenfoot.World
         devPanelManager();
         //Act timer manager
         actTimer++;
+        randpt1 =Greenfoot.getRandomNumber(200);
+        randpt2 =Greenfoot.getRandomNumber(100);
+        randY= Greenfoot.getRandomNumber(100);
+
+  if (randpt1 <1 && randpt2 >50 ){addObject(new Goldfish(), 600, randY +150);}
+  else if (randpt1 <1 && randpt2 <50 ){addObject(new Goldfish2(), 0, randY +150);}
     }
     //Builds base world
     private void prepare(){

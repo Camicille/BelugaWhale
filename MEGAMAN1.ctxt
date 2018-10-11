@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=MEGAMAN1
+comment1.params=
+comment1.target=MEGAMAN1()
+comment10.params=
+comment10.target=void\ updateImage()
+comment11.params=
+comment11.target=void\ trimWhite()
+comment2.params=
+comment2.target=void\ SETUP()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ INPUT()
+comment5.params=
+comment5.target=void\ LOGIC()
+comment6.params=
+comment6.target=int\ Gravity()
+comment7.params=
+comment7.target=void\ Shift()
+comment8.params=
+comment8.target=void\ run()
+comment9.params=_key
+comment9.target=boolean\ Key(java.lang.String)
+numComments=12

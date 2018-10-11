@@ -35,8 +35,8 @@ public class SwordAttack extends Sword{
     }
     //Kills monsters
     private void monsterKiller(){  //Replace null with enemy types
-        if (isTouching(null)){
-            removeTouching(null);
+        if (isTouching(Goldfish.class)){
+            removeTouching(Goldfish.class);
             MyWorld w = (MyWorld)getWorld();
             w.addScore(10);
         }
