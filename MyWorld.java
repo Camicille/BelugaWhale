@@ -14,6 +14,9 @@ public class MyWorld extends greenfoot.World
     //Timers
     private int timerHouse, timerTrees, timerHealth, devTimer, actTimer;
     private static int WORLDSPEED, MAXHEALTH, HOUSETIMERMAX, HEALTHTIMERMAX, TREETIMERMAX;
+    private Pepper food;
+    private static final int RAND_NUM_PEPPER_SPAWN = 200, PEPPER_SPAWN_PERCENT = 1;
+    private static final int PEPPER_X_SPAWN = 600, PEPPER_RAND_NUM_Y_SPAWN = 276, PEPPER_ADDED_Y_SPAWN = 100;
     //Various Integers
     private int yCoord, score, health = 0;
     //Booleans
@@ -38,6 +41,7 @@ private int randpt1;// determine if Goldfish spawn
     }
 
     public void act(){
+        setPaintOrder(Goldfish.class, Goldfish2.class, MEGAMAN1.class, Sword.class, Car.class, Health.class, House.class, StartLine.class);
         if (actTimer < 1){
             //runs starting countdown
             countdown();
@@ -55,14 +59,16 @@ private int randpt1;// determine if Goldfish spawn
         randpt2 =Greenfoot.getRandomNumber(100);
         randY= Greenfoot.getRandomNumber(100);
 
-  if (randpt1 <1 && randpt2 >50 ){addObject(new Goldfish(), 600, randY +150);}
-  else if (randpt1 <1 && randpt2 <50 ){addObject(new Goldfish2(), 0, randY +150);}
+        if (randpt1 <1 && randpt2 >50 ){addObject(new Goldfish(), 600, randY +150);}
+        else if (randpt1 <1 && randpt2 <50 ){addObject(new Goldfish2(), 0, randY +150);}
     }
     //Builds base world
     private void prepare(){
-        setPaintOrder(Car.class, Health.class, House.class, StartLine.class);
+        
         //player init
-                        //addObject(new Car(), 160, 200);
+        //addObject(new Car(), 160, 200);
+        addObject(new MEGAMAN1(),160,200);
+        addObject(new Sword(),200,200);
         //road init
         addObject(new Road(), 600, 200);
         addObject(new Road(), 200, 200);
@@ -85,6 +91,10 @@ private int randpt1;// determine if Goldfish spawn
     }
     //Spawns randomly generated objects
     public void itemSpawner(){
+        food = new Pepper();
+        if (Greenfoot.getRandomNumber(RAND_NUM_PEPPER_SPAWN) < PEPPER_SPAWN_PERCENT) { //frequency of food spawn
+            addObject(food, PEPPER_X_SPAWN, Greenfoot.getRandomNumber(PEPPER_RAND_NUM_Y_SPAWN) + PEPPER_ADDED_Y_SPAWN);
+        }
         if(timerHouse >= HOUSETIMERMAX && Greenfoot.getRandomNumber(100) < 2){
             addObject (new House(), 650, 87);
             timerHouse = 0;
@@ -123,8 +133,12 @@ private int randpt1;// determine if Goldfish spawn
     //Sets health
     public void addHealth(int change){
         health = health + change;
-        if (health > MAXHEALTH)
+        if (health >= MAXHEALTH)
             health = MAXHEALTH;
+        if (health < 0){
+            addObject(new GAMEOVER(),getWidth()/2,getHeight()/2);
+            Greenfoot.stop();
+        }
     }
     //sends world speed to external classes
     public int getSpeed(){
